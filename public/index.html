@@ -5,22 +5,13 @@
         
 
         
-/*.slika{
-    
-    background-repeat: no-repeat;
-  background-attachment: fixed;  
-  background-position: center top;
-  background-size: 1000px;
-  background-color: rgba(160, 154, 154, 0.466);
- height: 100px;
-}
-*/
+
 footer {
   
   left: 0;
   bottom: 0;
   width: 1000px;
-  background-color: rgba(255, 0, 0, 0.507);
+  background-color: rgba(255, 0, 0, 0.603);
   color: white;
   text-align: center;
   margin-right: auto;
@@ -53,17 +44,39 @@ footer {
   
   
     <div id="app"></div>
+    <script src="https://www.gstatic.com/firebasejs/7.5.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.5.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.5.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.5.1/firebase-firestore.js"></script>
+    
   
-  
-    <!-- built files will be auto injected -->
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyAezm6978LtfoF0hWIVO_f0Wdm7pjGxNAw",
+    authDomain: "foodset-c1188.firebaseapp.com",
+    databaseURL: "https://foodset-c1188.firebaseio.com",
+    projectId: "foodset-c1188",
+    storageBucket: "foodset-c1188.appspot.com",
+    messagingSenderId: "981306447001",
+    appId: "1:981306447001:web:242791a338529cde755408",
+    measurementId: "G-4T1GZK59RS"
+  };
+ // Initialize Firebase
+ firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+
+      var db = firebase.firestore();
+     
+</script>
 
 
   </body>
 
-  <footer>
-      <p>foodset team</p>
-  <p>Kontakt informacije :  <a href="mailto:foodset@gmail.com">
-  foodset@gmail.com</a>.</p>
-    </footer>
+  
 
 </html>

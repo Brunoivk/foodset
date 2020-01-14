@@ -31,8 +31,12 @@
 <script>
 // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue'
+import store from "@/store.js"
 
 export default {
+   data(){
+    return store;
+  },
   name: 'home',
   components: {
     HelloWorld

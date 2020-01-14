@@ -1,5 +1,5 @@
 <template>
-  <div class="login-box">
+ <!-- <div class="login-box">
     <h1 class="prijava">Prijava </h1>
     
    
@@ -11,28 +11,82 @@
       
     <i class="fa fa-user" aria-hidden="true"></i>
     
+    
 
-   <!-- <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"     >-->
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  placeholder="Email">
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"     >
+    <input v-model="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
   </div>
   <div class="form-group">
     <i class="fa fa-lock" aria-hidden="true"></i>
    <!--  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"> -->
-    <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Password">
+    <!-- <input v-model="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
   </div>
   
   
   
-  <button type="button" class="btn btn-light">Prijavi se</button>
+  <!--<button type="submit" class="btn btn-light">Prijavi se</button> 
+
+
+
 </form>
-    </div>
     
+    </div>
   
-</div>
-  
+</div>-->
+  <div>
+  <div class="login-box">
+    <div class="col">
+     <h1 class="prijava">Prijava </h1>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col">
+      </div>
+      <div class="text-box">
+        <form @submit.prevent="login"> <!-- 3. -->
+          <div class="form-group">
+                <i class="fa fa-user" aria-hidden="true"></i>
+            <input v-model="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            <!-- 1. v-model dohvacamo email -->
+          </div>
+          <div class="form-group">
+            <i class="fa fa-lock" aria-hidden="true"></i>
+            <input v-model="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          </div>
+          <button type="submit" class="btn btn-light">Prijavi se</button>
+        </form>
+      </div>
+      <div class="col">
+      </div>
+    </div>
+  </div>
 
   
 </template>
+
+
+<script>
+
+ // 2. nakon v-modela u scripti imenujemo email i pass
+export default {
+  data () {
+    return {
+      email: '',
+      password: '',
+    }
+  },
+  methods: {
+    login () { // 4 
+      firebase.auth().signInWithEmailAndPassword(this.email, this.password).catch(function(error) {
+        console.log(error)
+        alert("Nepoznata sifra, pokusaj te ponovno")
+      });
+    }
+  }
+}
+</script>
+
+
 <style>
 @import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
 
@@ -93,7 +147,7 @@ body{
     background: none;
     color: rgb(255, 255, 255);
     font-size: 25px;
-    width: 300px;
+    width: 600px;
     font-weight: bold;
 
 
@@ -129,9 +183,7 @@ margin: 12px;
 
 }
 
-input[type=email], input[type=password] {
-  
-}
+
 
 button:hover {
   opacity: 0.6;
